@@ -1,69 +1,42 @@
-# React + TypeScript + Vite
+# Morosystems FrontEnd Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Simple React Todo app for Morosystems FrontEnd Assignment.
 
-Currently, two official plugins are available:
+## Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Run `npm i` for dependecies installation.
+2. Run `npm start` for a local dev server.
+3. You can access app on `http://localhost:5173/`.
 
-## Expanding the ESLint configuration
+### Local BE server
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This app needs Local ([Morosystems BE](https://github.com/morosystems/todo-be)) running for all features. Local server runs on `http://localhost:8080/`. If the port of BE changes, make sure to change it also in .env of FE App.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Functionalities
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+:heavy_check_mark: Tasks can be added. <br>
+:heavy_check_mark: Tasks can be removed and renamed.<br>
+:heavy_check_mark: Tasks can be marked as completed.<br>
+:heavy_check_mark: Tasks can be filtered by completed and not completed.<br>
+:heavy_check_mark: All visible tasks can be marked as completed at once.<br>
+:heavy_check_mark: All completed tasks can be deleted at once.<br>
+:heavy_check_mark: The number of completed tasks is displayed.<br>
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## App Core
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Custom build Vite + React + Typescript
+- Redux + RTK Query
+- ESLint + Prettier
+- Material UI + TailwindCSS
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Additional Features
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Error handling with Snackbar Notification
+- Customized theme for Material UI
+- Optimistic updates for BE requests
+
+## Possible Improvements
+
+- Unit & E2E tests (Jest & Cypress)
+- Input Validation (XSS)
+- Improve bulk actions (toggle/delete all): BE work needed
